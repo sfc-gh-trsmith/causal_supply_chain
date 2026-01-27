@@ -1,0 +1,329 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="archBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="sourceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+    <linearGradient id="snowflakeLayerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#29B5E8"/>
+      <stop offset="100%" style="stop-color:#0891b2"/>
+    </linearGradient>
+    <linearGradient id="aiGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="appGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#16a34a"/>
+    </linearGradient>
+    <linearGradient id="personaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#2563eb"/>
+    </linearGradient>
+    <filter id="archShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+    <filter id="archGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowHead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#29B5E8"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1400" height="900" fill="url(#archBg)"/>
+  
+  <!-- Grid pattern -->
+  <pattern id="archGrid" width="50" height="50" patternUnits="userSpaceOnUse">
+    <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#334155" stroke-width="0.3" opacity="0.4"/>
+  </pattern>
+  <rect width="1400" height="900" fill="url(#archGrid)"/>
+  
+  <!-- Header -->
+  <text x="700" y="40" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="500" fill="#94a3b8" letter-spacing="3">SOLUTION ARCHITECTURE</text>
+  <text x="700" y="75" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#e2e8f0">Causal Chain Strategy Simulator</text>
+  
+  <!-- Column headers -->
+  <text x="120" y="120" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#f59e0b" letter-spacing="1">DATA SOURCES</text>
+  <text x="470" y="120" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#29B5E8" letter-spacing="1">SNOWFLAKE PLATFORM</text>
+  <text x="1070" y="120" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#8b5cf6" letter-spacing="1">CORTEX AI</text>
+  <text x="1300" y="120" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#3b82f6" letter-spacing="1">CONSUMERS</text>
+  
+  <!-- DATA SOURCES Column -->
+  <g transform="translate(40, 150)">
+    <!-- ERP -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="160" height="70" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="2" filter="url(#archShadow)"/>
+      <rect x="0" y="0" width="160" height="5" rx="2" fill="url(#sourceGrad)"/>
+      <text x="80" y="32" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#f59e0b">ERP System</text>
+      <text x="80" y="50" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" fill="#94a3b8">SAP / Oracle</text>
+      <text x="80" y="62" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748b">Orders, Inventory</text>
+    </g>
+    
+    <!-- TMS -->
+    <g transform="translate(0, 90)">
+      <rect x="0" y="0" width="160" height="70" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="2" filter="url(#archShadow)"/>
+      <rect x="0" y="0" width="160" height="5" rx="2" fill="url(#sourceGrad)"/>
+      <text x="80" y="32" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#f59e0b">TMS</text>
+      <text x="80" y="50" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" fill="#94a3b8">Transport Mgmt</text>
+      <text x="80" y="62" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748b">Freight, Lead Times</text>
+    </g>
+    
+    <!-- Demand Planning -->
+    <g transform="translate(0, 180)">
+      <rect x="0" y="0" width="160" height="70" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="2" filter="url(#archShadow)"/>
+      <rect x="0" y="0" width="160" height="5" rx="2" fill="url(#sourceGrad)"/>
+      <text x="80" y="32" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#f59e0b">S&amp;OP</text>
+      <text x="80" y="50" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" fill="#94a3b8">Demand Planning</text>
+      <text x="80" y="62" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748b">Forecasts, Plans</text>
+    </g>
+    
+    <!-- QBR Documents -->
+    <g transform="translate(0, 270)">
+      <rect x="0" y="0" width="160" height="70" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="2" filter="url(#archShadow)"/>
+      <rect x="0" y="0" width="160" height="5" rx="2" fill="url(#sourceGrad)"/>
+      <text x="80" y="32" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#f59e0b">Documents</text>
+      <text x="80" y="50" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" fill="#94a3b8">QBRs, Risk Reports</text>
+      <text x="80" y="62" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748b">PDFs, Unstructured</text>
+    </g>
+    
+    <!-- Data flow frequencies -->
+    <text x="180" y="40" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748b">Daily</text>
+    <text x="180" y="130" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748b">Hourly</text>
+    <text x="180" y="220" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748b">Daily</text>
+    <text x="180" y="310" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748b">Ad-hoc</text>
+  </g>
+  
+  <!-- Flow arrows from sources -->
+  <g stroke="#29B5E8" stroke-width="2" fill="none" marker-end="url(#arrowHead)">
+    <path d="M220,195 Q260,195 280,260" opacity="0.7"/>
+    <path d="M220,285 L280,285" opacity="0.7"/>
+    <path d="M220,375 Q260,375 280,320" opacity="0.7"/>
+    <path d="M220,465 Q260,465 280,380" opacity="0.7"/>
+  </g>
+  
+  <!-- SNOWFLAKE PLATFORM Column -->
+  <g transform="translate(300, 150)">
+    <!-- RAW Layer -->
+    <rect x="0" y="0" width="340" height="100" rx="10" fill="#1e293b" stroke="#29B5E8" stroke-width="2" filter="url(#archShadow)"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#snowflakeLayerGrad)"/>
+    <text x="170" y="28" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#29B5E8">RAW LAYER</text>
+    
+    <g transform="translate(15, 40)">
+      <rect x="0" y="0" width="95" height="45" rx="5" fill="#0f172a" stroke="#334155"/>
+      <text x="47" y="18" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="500" fill="#94a3b8">ERP_STAGE</text>
+      <text x="47" y="33" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="#64748b">CSV, Parquet</text>
+    </g>
+    <g transform="translate(120, 40)">
+      <rect x="0" y="0" width="95" height="45" rx="5" fill="#0f172a" stroke="#334155"/>
+      <text x="47" y="18" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="500" fill="#94a3b8">TMS_STAGE</text>
+      <text x="47" y="33" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="#64748b">CSV, Parquet</text>
+    </g>
+    <g transform="translate(225, 40)">
+      <rect x="0" y="0" width="95" height="45" rx="5" fill="#0f172a" stroke="#334155"/>
+      <text x="47" y="18" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="500" fill="#94a3b8">QBR_STAGE</text>
+      <text x="47" y="33" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="#64748b">PDF Documents</text>
+    </g>
+    
+    <!-- Arrow down -->
+    <path d="M170,115 L170,135" stroke="#29B5E8" stroke-width="2" marker-end="url(#arrowHead)" fill="none"/>
+    <text x="195" y="130" font-family="Inter, Arial, sans-serif" font-size="8" fill="#64748b">Streams + Tasks</text>
+    
+    <!-- ANALYTICS Layer -->
+    <rect x="0" y="150" width="340" height="180" rx="10" fill="#1e293b" stroke="#29B5E8" stroke-width="2" filter="url(#archShadow)"/>
+    <rect x="0" y="150" width="340" height="6" rx="3" fill="url(#snowflakeLayerGrad)"/>
+    <text x="170" y="178" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#29B5E8">ANALYTICS LAYER</text>
+    
+    <g transform="translate(15, 195)">
+      <rect x="0" y="0" width="150" height="55" rx="5" fill="#0f172a" stroke="#334155"/>
+      <text x="75" y="18" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#e2e8f0">FACT_PERFORMANCE</text>
+      <text x="75" y="32" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="#64748b">432 rows, 36 months</text>
+      <text x="75" y="46" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="#22c55e">OTIF, Margin, ROCE, FCF</text>
+    </g>
+    <g transform="translate(175, 195)">
+      <rect x="0" y="0" width="150" height="55" rx="5" fill="#0f172a" stroke="#334155"/>
+      <text x="75" y="18" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#e2e8f0">DIM_INVENTORY</text>
+      <text x="75" y="32" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="#64748b">5 inventory types</text>
+      <text x="75" y="46" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="#f59e0b">Cycle, Safety, Pipeline...</text>
+    </g>
+    <g transform="translate(15, 260)">
+      <rect x="0" y="0" width="150" height="55" rx="5" fill="#0f172a" stroke="#334155"/>
+      <text x="75" y="18" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#e2e8f0">SCENARIO_CONTROL</text>
+      <text x="75" y="32" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="#64748b">12 scenario configs</text>
+      <text x="75" y="46" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="#3b82f6">Growth, Margin, Cash</text>
+    </g>
+    <g transform="translate(175, 260)">
+      <rect x="0" y="0" width="150" height="55" rx="5" fill="#0f172a" stroke="#334155"/>
+      <text x="75" y="18" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#e2e8f0">PREDICTIVE_BRIDGE</text>
+      <text x="75" y="32" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="#64748b">1,728 predictions</text>
+      <text x="75" y="46" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="#8b5cf6">Prophet + XGBoost</text>
+    </g>
+    
+    <!-- Arrow down -->
+    <path d="M170,345 L170,365" stroke="#29B5E8" stroke-width="2" marker-end="url(#arrowHead)" fill="none"/>
+    <text x="195" y="360" font-family="Inter, Arial, sans-serif" font-size="8" fill="#64748b">Joins + Aggregates</text>
+    
+    <!-- CONSUMPTION Layer -->
+    <rect x="0" y="380" width="340" height="80" rx="10" fill="#1e293b" stroke="#29B5E8" stroke-width="2" filter="url(#archShadow)"/>
+    <rect x="0" y="380" width="340" height="6" rx="3" fill="url(#snowflakeLayerGrad)"/>
+    <text x="170" y="408" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#29B5E8">CONSUMPTION LAYER</text>
+    
+    <g transform="translate(15, 420)">
+      <rect x="0" y="0" width="150" height="30" rx="5" fill="#0f172a" stroke="#334155"/>
+      <text x="75" y="20" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="500" fill="#94a3b8">CAUSAL_TRACES</text>
+    </g>
+    <g transform="translate(175, 420)">
+      <rect x="0" y="0" width="150" height="30" rx="5" fill="#0f172a" stroke="#334155"/>
+      <text x="75" y="20" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="500" fill="#94a3b8">QBR_DOCUMENTS</text>
+    </g>
+  </g>
+  
+  <!-- Arrows to AI -->
+  <path d="M660,400 Q700,400 730,320" stroke="#29B5E8" stroke-width="2" marker-end="url(#arrowHead)" fill="none" opacity="0.7"/>
+  <path d="M660,400 L730,400" stroke="#29B5E8" stroke-width="2" marker-end="url(#arrowHead)" fill="none" opacity="0.7"/>
+  <path d="M660,400 Q700,400 730,480" stroke="#29B5E8" stroke-width="2" marker-end="url(#arrowHead)" fill="none" opacity="0.7"/>
+  
+  <!-- CORTEX AI Column -->
+  <g transform="translate(750, 150)">
+    <!-- Semantic Model -->
+    <rect x="0" y="0" width="260" height="100" rx="10" fill="#1e293b" stroke="#8b5cf6" stroke-width="2" filter="url(#archShadow)"/>
+    <rect x="0" y="0" width="260" height="6" rx="3" fill="url(#aiGrad)"/>
+    <text x="130" y="28" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#8b5cf6">SEMANTIC MODEL</text>
+    <text x="130" y="50" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" fill="#94a3b8">causal_chain_model.yaml</text>
+    <text x="130" y="68" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748b">4 tables | 25+ metrics | 6 VQRs</text>
+    <text x="130" y="85" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#c4b5fd">Text-to-SQL ready</text>
+    
+    <!-- Cortex Analyst -->
+    <rect x="0" y="120" width="260" height="80" rx="10" fill="#1e293b" stroke="#8b5cf6" stroke-width="2" filter="url(#archShadow)"/>
+    <rect x="0" y="120" width="260" height="6" rx="3" fill="url(#aiGrad)"/>
+    <text x="130" y="150" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#8b5cf6">CORTEX ANALYST</text>
+    <text x="130" y="172" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" fill="#94a3b8">Natural Language to SQL</text>
+    <text x="130" y="190" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748b">"Why did ROCE drop?" → SQL</text>
+    
+    <!-- Cortex Search -->
+    <rect x="0" y="220" width="260" height="80" rx="10" fill="#1e293b" stroke="#8b5cf6" stroke-width="2" filter="url(#archShadow)"/>
+    <rect x="0" y="220" width="260" height="6" rx="3" fill="url(#aiGrad)"/>
+    <text x="130" y="250" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#8b5cf6">CORTEX SEARCH</text>
+    <text x="130" y="272" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" fill="#94a3b8">RAG over QBR Documents</text>
+    <text x="130" y="290" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748b">Vector embeddings + retrieval</text>
+    
+    <!-- Cortex Complete -->
+    <rect x="0" y="320" width="260" height="80" rx="10" fill="#1e293b" stroke="#8b5cf6" stroke-width="2" filter="url(#archShadow)"/>
+    <rect x="0" y="320" width="260" height="6" rx="3" fill="url(#aiGrad)"/>
+    <text x="130" y="350" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#8b5cf6">CORTEX COMPLETE</text>
+    <text x="130" y="372" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" fill="#94a3b8">AI Explanations</text>
+    <text x="130" y="390" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748b">mistral-large2 model</text>
+  </g>
+  
+  <!-- Arrows to App -->
+  <path d="M1030,280 L1070,280" stroke="#29B5E8" stroke-width="2" marker-end="url(#arrowHead)" fill="none" opacity="0.7"/>
+  
+  <!-- STREAMLIT APP -->
+  <g transform="translate(1090, 150)">
+    <rect x="0" y="0" width="260" height="260" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="2" filter="url(#archShadow)"/>
+    <rect x="0" y="0" width="260" height="8" rx="4" fill="url(#appGrad)"/>
+    
+    <text x="130" y="35" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#22c55e">STRATEGY SIMULATOR</text>
+    <text x="130" y="55" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" fill="#94a3b8">Streamlit in Snowflake</text>
+    
+    <g transform="translate(15, 70)">
+      <rect x="0" y="0" width="110" height="35" rx="5" fill="#0f172a" stroke="#334155"/>
+      <text x="55" y="15" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="500" fill="#22c55e">Strategy</text>
+      <text x="55" y="28" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="#64748b">Selector</text>
+    </g>
+    <g transform="translate(135, 70)">
+      <rect x="0" y="0" width="110" height="35" rx="5" fill="#0f172a" stroke="#334155"/>
+      <text x="55" y="15" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="500" fill="#f59e0b">Trade-Off</text>
+      <text x="55" y="28" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="#64748b">Triangle</text>
+    </g>
+    <g transform="translate(15, 115)">
+      <rect x="0" y="0" width="110" height="35" rx="5" fill="#0f172a" stroke="#334155"/>
+      <text x="55" y="15" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="500" fill="#3b82f6">ROCE</text>
+      <text x="55" y="28" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="#64748b">Sensitivity</text>
+    </g>
+    <g transform="translate(135, 115)">
+      <rect x="0" y="0" width="110" height="35" rx="5" fill="#0f172a" stroke="#334155"/>
+      <text x="55" y="15" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="500" fill="#ef4444">Causal</text>
+      <text x="55" y="28" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="#64748b">Sankey</text>
+    </g>
+    <g transform="translate(15, 160)">
+      <rect x="0" y="0" width="110" height="35" rx="5" fill="#0f172a" stroke="#334155"/>
+      <text x="55" y="15" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="500" fill="#8b5cf6">Inventory</text>
+      <text x="55" y="28" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="#64748b">Decomp</text>
+    </g>
+    <g transform="translate(135, 160)">
+      <rect x="0" y="0" width="110" height="35" rx="5" fill="#0f172a" stroke="#334155"/>
+      <text x="55" y="15" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="500" fill="#29B5E8">Financial</text>
+      <text x="55" y="28" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="#64748b">Bridge</text>
+    </g>
+    
+    <g transform="translate(15, 205)">
+      <rect x="0" y="0" width="230" height="40" rx="5" fill="#8b5cf620" stroke="#8b5cf6"/>
+      <text x="115" y="17" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="500" fill="#8b5cf6">AI Assistant</text>
+      <text x="115" y="32" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="#c4b5fd">Cortex-powered Q&amp;A</text>
+    </g>
+  </g>
+  
+  <!-- Arrows to Personas -->
+  <path d="M1220,420 L1220,510" stroke="#29B5E8" stroke-width="2" marker-end="url(#arrowHead)" fill="none" opacity="0.7"/>
+  
+  <!-- PERSONAS -->
+  <g transform="translate(1090, 530)">
+    <rect x="0" y="0" width="260" height="130" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="2" filter="url(#archShadow)"/>
+    <rect x="0" y="0" width="260" height="6" rx="3" fill="url(#personaGrad)"/>
+    <text x="130" y="30" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#3b82f6">PERSONAS</text>
+    
+    <g transform="translate(20, 45)">
+      <circle cx="15" cy="15" r="15" fill="#fbbf24" opacity="0.3"/>
+      <text x="15" y="20" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" fill="#fbbf24">$</text>
+      <text x="45" y="15" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">CFO</text>
+      <text x="45" y="28" font-family="Inter, Arial, sans-serif" font-size="8" fill="#64748b">ROCE Focus</text>
+    </g>
+    <g transform="translate(130, 45)">
+      <circle cx="15" cy="15" r="15" fill="#22c55e" opacity="0.3"/>
+      <text x="15" y="20" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" fill="#22c55e">&#9881;</text>
+      <text x="45" y="15" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">VP Supply Chain</text>
+      <text x="45" y="28" font-family="Inter, Arial, sans-serif" font-size="8" fill="#64748b">Causal Trace</text>
+    </g>
+    <g transform="translate(75, 90)">
+      <circle cx="15" cy="15" r="15" fill="#8b5cf6" opacity="0.3"/>
+      <text x="15" y="20" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" fill="#8b5cf6">&#128202;</text>
+      <text x="45" y="15" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">Data Analyst</text>
+      <text x="45" y="28" font-family="Inter, Arial, sans-serif" font-size="8" fill="#64748b">Ad-hoc Queries</text>
+    </g>
+  </g>
+  
+  <!-- Key / Legend -->
+  <g transform="translate(40, 720)">
+    <rect x="0" y="0" width="600" height="60" rx="8" fill="#1e293b" stroke="#334155"/>
+    <text x="20" y="25" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#94a3b8">DATA FLOW FREQUENCY:</text>
+    <circle cx="180" cy="20" r="6" fill="#22c55e"/>
+    <text x="195" y="25" font-family="Inter, Arial, sans-serif" font-size="10" fill="#64748b">Real-time / Streaming</text>
+    <circle cx="310" cy="20" r="6" fill="#f59e0b"/>
+    <text x="325" y="25" font-family="Inter, Arial, sans-serif" font-size="10" fill="#64748b">Hourly Batch</text>
+    <circle cx="420" cy="20" r="6" fill="#3b82f6"/>
+    <text x="435" y="25" font-family="Inter, Arial, sans-serif" font-size="10" fill="#64748b">Daily Batch</text>
+    <circle cx="520" cy="20" r="6" fill="#8b5cf6"/>
+    <text x="535" y="25" font-family="Inter, Arial, sans-serif" font-size="10" fill="#64748b">Ad-hoc</text>
+    
+    <text x="20" y="50" font-family="Inter, Arial, sans-serif" font-size="10" fill="#64748b">All data stays in Snowflake. No ETL. No external ML infrastructure. Role-based access control.</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="700" y="820" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" fill="#64748b">Project Causal Chain: Strategy Simulator Architecture</text>
+  
+  <!-- Snowflake logo -->
+  <g transform="translate(1300, 830)">
+    <circle cx="0" cy="0" r="22" fill="none" stroke="#29B5E8" stroke-width="2"/>
+    <path d="M0,-12 L0,12 M-10.4,-6 L10.4,6 M-10.4,6 L10.4,-6" stroke="#29B5E8" stroke-width="2" stroke-linecap="round"/>
+  </g>
+</svg>

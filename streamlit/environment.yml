@@ -1,0 +1,10 @@
+name: strategy_simulator
+channels:
+  - snowflake
+dependencies:
+  - streamlit
+  - pandas
+  - plotly
+  - altair
+  - snowflake-snowpark-python
+  - snowflake-ml-python

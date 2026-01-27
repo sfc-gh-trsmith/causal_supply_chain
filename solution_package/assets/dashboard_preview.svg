@@ -1,0 +1,309 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="dashBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="dashBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#29B5E8"/>
+      <stop offset="100%" style="stop-color:#0891b2"/>
+    </linearGradient>
+    <linearGradient id="dashGreen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#16a34a"/>
+    </linearGradient>
+    <linearGradient id="dashAmber" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+    <linearGradient id="dashPurple" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="dashRed" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#dc2626"/>
+    </linearGradient>
+    <filter id="dashShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+    <filter id="glowGreen">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#dashBg)"/>
+  
+  <!-- Grid -->
+  <pattern id="dashGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+    <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#334155" stroke-width="0.2" opacity="0.3"/>
+  </pattern>
+  <rect width="1200" height="800" fill="url(#dashGrid)"/>
+  
+  <!-- Browser chrome -->
+  <rect x="40" y="20" width="1120" height="760" rx="12" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  
+  <!-- Browser top bar -->
+  <rect x="40" y="20" width="1120" height="35" rx="12" fill="#1e293b"/>
+  <rect x="40" y="43" width="1120" height="12" fill="#1e293b"/>
+  <circle cx="65" cy="38" r="6" fill="#ef4444"/>
+  <circle cx="90" cy="38" r="6" fill="#f59e0b"/>
+  <circle cx="115" cy="38" r="6" fill="#22c55e"/>
+  <rect x="200" y="28" width="700" height="20" rx="4" fill="#0f172a"/>
+  <text x="550" y="43" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" fill="#64748b">snowflake.com/apps/CAUSAL_CHAIN/STRATEGY_SIMULATOR</text>
+  
+  <!-- SIDEBAR -->
+  <rect x="50" y="65" width="200" height="705" fill="#1e293b"/>
+  
+  <!-- Persona selector -->
+  <text x="70" y="95" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="600" fill="#94a3b8">SELECT YOUR ROLE</text>
+  <rect x="60" y="105" width="180" height="30" rx="6" fill="#29B5E820" stroke="#29B5E8"/>
+  <text x="150" y="125" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#29B5E8">CFO</text>
+  <rect x="60" y="140" width="180" height="25" rx="5" fill="transparent"/>
+  <text x="150" y="157" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" fill="#64748b">VP Supply Chain</text>
+  <rect x="60" y="168" width="180" height="25" rx="5" fill="transparent"/>
+  <text x="150" y="185" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" fill="#64748b">Data Analyst</text>
+  
+  <line x1="60" y1="205" x2="240" y2="205" stroke="#334155"/>
+  
+  <!-- Strategy selector -->
+  <text x="70" y="230" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="600" fill="#94a3b8">STRATEGY SELECTOR</text>
+  <rect x="60" y="240" width="180" height="35" rx="6" fill="#22c55e20" stroke="#22c55e" stroke-width="2" filter="url(#glowGreen)"/>
+  <text x="150" y="263" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" fill="#22c55e">GROWTH</text>
+  <rect x="60" y="280" width="180" height="28" rx="5" fill="#0f172a"/>
+  <text x="150" y="299" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" fill="#64748b">MARGIN</text>
+  <rect x="60" y="312" width="180" height="28" rx="5" fill="#0f172a"/>
+  <text x="150" y="331" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" fill="#64748b">CASH</text>
+  
+  <line x1="60" y1="355" x2="240" y2="355" stroke="#334155"/>
+  
+  <!-- Shock event -->
+  <text x="70" y="380" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="600" fill="#94a3b8">SHOCK EVENT</text>
+  <rect x="60" y="390" width="180" height="30" rx="5" fill="#0f172a" stroke="#334155"/>
+  <text x="75" y="410" font-family="Inter, Arial, sans-serif" font-size="10" fill="#f59e0b">PORT_STRIKE</text>
+  <path d="M220,405 L225,400 L230,405" stroke="#64748b" stroke-width="1.5" fill="none"/>
+  
+  <line x1="60" y1="435" x2="240" y2="435" stroke="#334155"/>
+  
+  <!-- AI Assistant -->
+  <text x="70" y="460" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="600" fill="#94a3b8">AI ASSISTANT</text>
+  <rect x="60" y="470" width="85" height="25" rx="4" fill="#8b5cf620" stroke="#8b5cf6"/>
+  <text x="102" y="487" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#8b5cf6">Data Analysis</text>
+  <rect x="150" y="470" width="85" height="25" rx="4" fill="transparent" stroke="#334155"/>
+  <text x="192" y="487" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748b">Doc Search</text>
+  
+  <rect x="60" y="505" width="180" height="60" rx="5" fill="#0f172a" stroke="#334155"/>
+  <text x="75" y="525" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748b">Ask about the data...</text>
+  <text x="75" y="545" font-family="Inter, Arial, sans-serif" font-size="8" font-style="italic" fill="#4b5563">"Why did ROCE drop?"</text>
+  
+  <rect x="60" y="575" width="180" height="30" rx="5" fill="url(#dashPurple)"/>
+  <text x="150" y="595" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="white">Ask Cortex</text>
+  
+  <!-- MAIN CONTENT -->
+  <g transform="translate(270, 65)">
+    <!-- Header -->
+    <text x="20" y="35" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#e2e8f0">Causal Chain: Strategy Simulator</text>
+    <rect x="370" y="15" width="100" height="30" rx="15" fill="#22c55e20" stroke="#22c55e"/>
+    <text x="420" y="35" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#22c55e">GROWTH MODE</text>
+    
+    <text x="20" y="55" font-family="Inter, Arial, sans-serif" font-size="12" fill="#94a3b8">Financial Performance | Revenue growth will outpace capital cost</text>
+    
+    <!-- KPI Cards Row -->
+    <g transform="translate(20, 75)">
+      <!-- ROCE -->
+      <rect x="0" y="0" width="180" height="90" rx="10" fill="#1e293b" stroke="#334155" filter="url(#dashShadow)"/>
+      <text x="90" y="35" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#3b82f6">14.2%</text>
+      <text x="90" y="55" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" fill="#94a3b8">ROCE</text>
+      <text x="90" y="75" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" fill="#ef4444">-0.8% vs baseline</text>
+      
+      <!-- FCF -->
+      <rect x="195" y="0" width="180" height="90" rx="10" fill="#1e293b" stroke="#334155" filter="url(#dashShadow)"/>
+      <text x="285" y="35" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#29B5E8">$4.2M</text>
+      <text x="285" y="55" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" fill="#94a3b8">Free Cash Flow</text>
+      <text x="285" y="75" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" fill="#ef4444">-$0.8M vs baseline</text>
+      
+      <!-- EVA -->
+      <rect x="390" y="0" width="180" height="90" rx="10" fill="#1e293b" stroke="#334155" filter="url(#dashShadow)"/>
+      <text x="480" y="35" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#22c55e">$1.8M</text>
+      <text x="480" y="55" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" fill="#94a3b8">Economic Value Add</text>
+      <text x="480" y="75" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" fill="#22c55e">+$0.3M vs baseline</text>
+      
+      <!-- Capital -->
+      <rect x="585" y="0" width="180" height="90" rx="10" fill="#1e293b" stroke="#334155" filter="url(#dashShadow)"/>
+      <text x="675" y="35" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#e2e8f0">$29M</text>
+      <text x="675" y="55" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" fill="#94a3b8">Capital Employed</text>
+    </g>
+    
+    <!-- Prediction section -->
+    <g transform="translate(20, 180)">
+      <rect x="0" y="0" width="745" height="70" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1"/>
+      <text x="20" y="22" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#f59e0b">SCENARIO PREDICTIONS: Port Strike</text>
+      
+      <rect x="20" y="35" width="140" height="25" rx="4" fill="#0f172a"/>
+      <text x="90" y="52" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" fill="#29B5E8">Pred FCF: $3.8M</text>
+      
+      <rect x="170" y="35" width="140" height="25" rx="4" fill="#0f172a"/>
+      <text x="240" y="52" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" fill="#3b82f6">Pred ROCE: 13.8%</text>
+      
+      <rect x="320" y="35" width="200" height="25" rx="4" fill="#0f172a"/>
+      <text x="420" y="52" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" fill="#f59e0b">Pred Safety Stock: $6.2M</text>
+      
+      <text x="560" y="52" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748b">90% CI: $3.2M - $4.4M</text>
+    </g>
+    
+    <!-- Trade-off Triangle and ROCE Sensitivity -->
+    <g transform="translate(20, 265)">
+      <!-- Triangle -->
+      <rect x="0" y="0" width="370" height="230" rx="10" fill="#1e293b" stroke="#334155" filter="url(#dashShadow)"/>
+      <text x="185" y="25" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#e2e8f0">Trade-Off Triangle</text>
+      
+      <!-- Triangle shape -->
+      <polygon points="185,55 70,190 300,190" fill="none" stroke="#334155" stroke-width="2"/>
+      <polygon points="185,55 70,190 300,190" fill="#0f172a" opacity="0.5"/>
+      
+      <!-- Service corner (top) - active -->
+      <circle cx="185" cy="60" r="35" fill="#22c55e" opacity="0.3" filter="url(#glowGreen)"/>
+      <circle cx="185" cy="60" r="28" fill="#1e293b" stroke="#22c55e" stroke-width="3"/>
+      <text x="185" y="55" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="600" fill="#22c55e">SERVICE</text>
+      <text x="185" y="70" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="white">94%</text>
+      
+      <!-- Cost corner -->
+      <circle cx="75" cy="185" r="25" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+      <text x="75" y="180" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="600" fill="#f59e0b">COST</text>
+      <text x="75" y="195" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" fill="white">32%</text>
+      
+      <!-- Cash corner -->
+      <circle cx="295" cy="185" r="25" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+      <text x="295" y="180" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="600" fill="#3b82f6">CASH</text>
+      <text x="295" y="195" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" fill="white">14.2%</text>
+      
+      <!-- ROCE Sensitivity -->
+      <rect x="385" y="0" width="360" height="230" rx="10" fill="#1e293b" stroke="#334155" filter="url(#dashShadow)"/>
+      <text x="565" y="25" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#e2e8f0">ROCE Sensitivity Calculator</text>
+      
+      <!-- Sliders -->
+      <text x="405" y="55" font-family="Inter, Arial, sans-serif" font-size="9" fill="#94a3b8">Safety Stock Reduction %</text>
+      <rect x="405" y="62" width="200" height="6" rx="3" fill="#334155"/>
+      <rect x="405" y="62" width="80" height="6" rx="3" fill="url(#dashBlue)"/>
+      <circle cx="485" cy="65" r="8" fill="url(#dashBlue)"/>
+      <text x="720" y="68" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="600" fill="#29B5E8">10%</text>
+      
+      <text x="405" y="95" font-family="Inter, Arial, sans-serif" font-size="9" fill="#94a3b8">Lead Time Change (days)</text>
+      <rect x="405" y="102" width="200" height="6" rx="3" fill="#334155"/>
+      <rect x="405" y="102" width="100" height="6" rx="3" fill="url(#dashAmber)"/>
+      <circle cx="505" cy="105" r="8" fill="url(#dashAmber)"/>
+      <text x="720" y="108" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="600" fill="#f59e0b">0</text>
+      
+      <text x="405" y="135" font-family="Inter, Arial, sans-serif" font-size="9" fill="#94a3b8">Batch Size Change %</text>
+      <rect x="405" y="142" width="200" height="6" rx="3" fill="#334155"/>
+      <rect x="405" y="142" width="100" height="6" rx="3" fill="url(#dashGreen)"/>
+      <circle cx="505" cy="145" r="8" fill="url(#dashGreen)"/>
+      <text x="720" y="148" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="600" fill="#22c55e">0%</text>
+      
+      <!-- Gauge -->
+      <g transform="translate(485, 195)">
+        <!-- Gauge background -->
+        <path d="M-50,0 A50,50 0 0,1 50,0" fill="none" stroke="#334155" stroke-width="10"/>
+        <!-- Gauge value -->
+        <path d="M-50,0 A50,50 0 0,1 30,-40" fill="none" stroke="url(#dashBlue)" stroke-width="10" stroke-linecap="round"/>
+        <!-- Center text -->
+        <text x="0" y="-5" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" fill="#29B5E8">15.4%</text>
+        <text x="0" y="12" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="#64748b">Projected ROCE</text>
+        <text x="0" y="25" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" fill="#22c55e">+120 bps</text>
+      </g>
+    </g>
+    
+    <!-- Causal Trace (Sankey) -->
+    <g transform="translate(20, 510)">
+      <rect x="0" y="0" width="745" height="130" rx="10" fill="#1e293b" stroke="#334155" filter="url(#dashShadow)"/>
+      <text x="20" y="25" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#e2e8f0">Interactive Causal Trace</text>
+      
+      <!-- Sankey nodes -->
+      <rect x="30" y="45" width="100" height="30" rx="5" fill="#f59e0b40" stroke="#f59e0b"/>
+      <text x="80" y="65" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#f59e0b">Forecast Error</text>
+      
+      <rect x="30" y="85" width="100" height="30" rx="5" fill="#f59e0b40" stroke="#f59e0b"/>
+      <text x="80" y="105" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#f59e0b">Lead Time</text>
+      
+      <rect x="200" y="50" width="100" height="30" rx="5" fill="#29B5E840" stroke="#29B5E8"/>
+      <text x="250" y="70" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#29B5E8">Safety Stock</text>
+      
+      <rect x="200" y="90" width="100" height="30" rx="5" fill="#29B5E840" stroke="#29B5E8"/>
+      <text x="250" y="110" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#29B5E8">Pipeline Stock</text>
+      
+      <rect x="370" y="70" width="120" height="30" rx="5" fill="#3b82f640" stroke="#3b82f6"/>
+      <text x="430" y="90" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#3b82f6">Capital Employed</text>
+      
+      <rect x="560" y="50" width="80" height="30" rx="5" fill="#22c55e40" stroke="#22c55e"/>
+      <text x="600" y="70" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#22c55e">ROCE</text>
+      
+      <rect x="560" y="90" width="80" height="30" rx="5" fill="#22c55e40" stroke="#22c55e"/>
+      <text x="600" y="110" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#22c55e">FCF</text>
+      
+      <!-- Flow lines -->
+      <path d="M130,60 Q165,60 200,65" stroke="#ef4444" stroke-width="4" fill="none" opacity="0.6"/>
+      <path d="M130,100 Q165,100 200,105" stroke="#ef4444" stroke-width="3" fill="none" opacity="0.6"/>
+      <path d="M300,65 Q335,70 370,85" stroke="#ef4444" stroke-width="5" fill="none" opacity="0.6"/>
+      <path d="M300,105 Q335,100 370,85" stroke="#ef4444" stroke-width="3" fill="none" opacity="0.6"/>
+      <path d="M490,85 Q525,70 560,65" stroke="#ef4444" stroke-width="4" fill="none" opacity="0.6"/>
+      <path d="M490,85 Q525,95 560,105" stroke="#22c55e" stroke-width="2" fill="none" opacity="0.6"/>
+      
+      <!-- Legend -->
+      <line x1="670" y1="55" x2="700" y2="55" stroke="#22c55e" stroke-width="3"/>
+      <text x="710" y="60" font-family="Inter, Arial, sans-serif" font-size="8" fill="#64748b">Positive</text>
+      <line x1="670" y1="75" x2="700" y2="75" stroke="#ef4444" stroke-width="3"/>
+      <text x="710" y="80" font-family="Inter, Arial, sans-serif" font-size="8" fill="#64748b">Negative</text>
+    </g>
+    
+    <!-- Inventory Decomposition -->
+    <g transform="translate(20, 655)">
+      <rect x="0" y="0" width="370" height="85" rx="10" fill="#1e293b" stroke="#334155" filter="url(#dashShadow)"/>
+      <text x="185" y="22" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">Inventory Decomposition</text>
+      
+      <!-- Stacked bar -->
+      <rect x="20" y="35" width="80" height="35" rx="3" fill="#3b82f6"/>
+      <rect x="100" y="35" width="70" height="35" rx="3" fill="#f59e0b"/>
+      <rect x="170" y="35" width="60" height="35" rx="3" fill="#22c55e"/>
+      <rect x="230" y="35" width="50" height="35" rx="3" fill="#8b5cf6"/>
+      <rect x="280" y="35" width="40" height="35" rx="3" fill="#ef4444"/>
+      
+      <text x="60" y="55" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="white">Cycle</text>
+      <text x="135" y="55" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="white">Safety</text>
+      <text x="200" y="55" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="white">Pipeline</text>
+      <text x="255" y="55" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="white">Antic.</text>
+      <text x="300" y="55" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="white">Strat.</text>
+    </g>
+    
+    <!-- Financial Bridge -->
+    <g transform="translate(405, 655)">
+      <rect x="0" y="0" width="360" height="85" rx="10" fill="#1e293b" stroke="#334155" filter="url(#dashShadow)"/>
+      <text x="180" y="22" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">Financial Bridge</text>
+      
+      <!-- Waterfall -->
+      <rect x="25" y="40" width="45" height="35" rx="3" fill="#22c55e"/>
+      <text x="47" y="62" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="white">NOPAT</text>
+      
+      <rect x="80" y="55" width="45" height="20" rx="3" fill="#ef4444"/>
+      <text x="102" y="68" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="7" fill="white">-WC</text>
+      
+      <rect x="135" y="60" width="45" height="15" rx="3" fill="#ef4444"/>
+      <text x="157" y="71" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="7" fill="white">-FA</text>
+      
+      <rect x="190" y="45" width="45" height="30" rx="3" fill="#29B5E8"/>
+      <text x="212" y="64" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="white">FCF</text>
+      
+      <text x="270" y="65" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748b">FCF = NOPAT - CE</text>
+    </g>
+  </g>
+  
+  <!-- Footer brand -->
+  <g transform="translate(1080, 760)">
+    <circle cx="0" cy="0" r="14" fill="none" stroke="#29B5E8" stroke-width="1.5"/>
+    <path d="M0,-8 L0,8 M-6.9,-4 L6.9,4 M-6.9,4 L6.9,-4" stroke="#29B5E8" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+</svg>

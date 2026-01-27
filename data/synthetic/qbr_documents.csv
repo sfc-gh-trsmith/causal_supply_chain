@@ -1,0 +1,50 @@
+DOC_ID,DOC_NAME,DOC_TYPE,QUARTER,YEAR,CONTENT_TEXT
+1,Q1 2025 Business Review,QBR,Q1,2025,"Q1 2025 Quarterly Business Review Summary
+            
+Service Performance: OTIF improved to 94.2% driven by safety stock investments in high-velocity SKUs. 
+Lead time reduced by 2 days through carrier optimization program.
+
+Cost Analysis: Gross margin pressure from commodity inflation (PPI +3.2%). 
+OEE gains of 4% offset by higher energy costs. First-pass yield stable at 94%.
+
+Cash Position: Working capital increased $4.2M due to strategic stock build for Q2 promotional season.
+ROCE declined 0.8% as capital employed grew faster than NOPAT.
+
+Key Risks: Supply chain disruption risk elevated due to Red Sea shipping concerns.
+Recommend 15% safety stock increase for EMEA-sourced materials."
+2,Q2 2025 Risk Assessment,RISK_ASSESSMENT,Q2,2025,"Q2 2025 Supply Chain Risk Assessment
+
+CRITICAL RISK: Port congestion at West Coast facilities creating 7-10 day delays.
+Impact: Pipeline stock increased $2.1M. Service risk for 23% of SKU portfolio.
+
+ELEVATED RISK: Single-source supplier dependency for electronic components.
+Impact: 18% of BOM at risk. Qualification of alternate supplier in progress.
+
+MODERATE RISK: Forecast bias trending positive (+4.2%) indicating systematic over-forecasting.
+Impact: Obsolescence risk increasing. Q4 write-off exposure estimated at $800K.
+
+MITIGATED: Red Sea disruption impact contained through strategic stock positioning.
+Container routing shifted to Suez alternatives. Cost impact: $1.2M freight premium.
+
+Recommendations:
+1. Accelerate nearshoring initiative for critical components
+2. Implement demand sensing to reduce forecast bias
+3. Review safety stock parameters for long lead time items"
+3,Q3 2025 Business Review,QBR,Q3,2025,"Q3 2025 Quarterly Business Review Summary
+
+Service Performance: Fill rate declined to 91.3% due to unexpected demand surge in APAC region.
+NPI launches exceeded plan with 8 new products successfully introduced.
+
+Cost Analysis: COGS reduction program delivered $3.4M savings through batch size optimization.
+Warning: Cycle stock increased 12% as consequence of larger batch procurement.
+
+Cash Position: Cash conversion cycle improved 4 days through DPO extension negotiations.
+Free cash flow strong at $8.2M despite inventory build for Q4 peak season.
+
+Causal Analysis: Q3 inventory spike root cause identified as:
+- 40% from anticipation stock build (planned)
+- 35% from safety stock increase (forecast error response)  
+- 25% from cycle stock growth (batch size decision)
+
+Strategic Pivot: Board approved shift to Cash Mode for Q4 given interest rate environment.
+Target: 10% working capital reduction while maintaining 92% service floor."

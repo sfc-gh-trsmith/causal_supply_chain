@@ -1,0 +1,463 @@
+name: causal_chain_model
+description: |
+  Supply Chain Strategy Simulator semantic model for Project Causal Chain.
+  Enables natural language queries about the Service-Cost-Cash triangle trade-offs,
+  inventory structure decomposition, ROCE sensitivity, and financial bridge analysis.
+
+tables:
+  - name: performance
+    description: Monthly supply chain performance metrics across Service, Cost, and Cash dimensions
+    base_table:
+      database: CAUSAL_CHAIN
+      schema: ANALYTICS
+      table: FACT_PERFORMANCE_SNAPSHOT
+    primary_key:
+      columns: [SNAPSHOT_ID]
+    
+    dimensions:
+      - name: region
+        expr: REGION
+        data_type: TEXT
+        description: Geographic region (NORTH_AMERICA, EUROPE, ASIA_PACIFIC, LATAM)
+        sample_values: ["NORTH_AMERICA", "EUROPE", "ASIA_PACIFIC", "LATAM"]
+      
+      - name: strategy_mode
+        expr: STRATEGY_MODE
+        data_type: TEXT
+        description: Strategic priority mode - GROWTH (prioritize service), MARGIN (prioritize cost), CASH (prioritize returns)
+        sample_values: ["GROWTH", "MARGIN", "CASH"]
+        synonyms:
+          - strategy
+          - mode
+          - priority
+    
+    time_dimensions:
+      - name: performance_month
+        expr: PERFORMANCE_MONTH
+        data_type: DATE
+        description: Month of performance measurement
+    
+    facts:
+      - name: otif_pct
+        expr: OTIF_PCT
+        data_type: NUMBER
+        description: On-Time In-Full delivery percentage (Service metric)
+        synonyms: [service level, delivery performance, OTIF]
+      
+      - name: fill_rate_pct
+        expr: FILL_RATE_PCT
+        data_type: NUMBER
+        description: Order fill rate percentage
+        synonyms: [fill rate]
+      
+      - name: net_sales_growth_pct
+        expr: NET_SALES_GROWTH_PCT
+        data_type: NUMBER
+        description: Year-over-year sales growth percentage
+        synonyms: [revenue growth, sales growth]
+      
+      - name: lead_time_days
+        expr: LEAD_TIME_DAYS
+        data_type: NUMBER
+        description: Order-to-delivery lead time in days
+        synonyms: [lead time, delivery time]
+      
+      - name: forecast_mape_pct
+        expr: FORECAST_MAPE_PCT
+        data_type: NUMBER
+        description: Mean Absolute Percentage Error of demand forecast
+        synonyms: [forecast error, MAPE, forecast accuracy]
+      
+      - name: forecast_bias_pct
+        expr: FORECAST_BIAS_PCT
+        data_type: NUMBER
+        description: Systematic over/under forecasting tendency (positive = over-forecast)
+        synonyms: [forecast bias, bias]
+      
+      - name: gross_margin_pct
+        expr: GROSS_MARGIN_PCT
+        data_type: NUMBER
+        description: Gross margin percentage (Cost metric)
+        synonyms: [gross margin, margin]
+      
+      - name: ebitda_margin_pct
+        expr: EBITDA_MARGIN_PCT
+        data_type: NUMBER
+        description: EBITDA margin percentage
+        synonyms: [EBITDA margin, operating margin]
+      
+      - name: cogs_usd
+        expr: COGS_USD
+        data_type: NUMBER
+        description: Cost of goods sold in USD
+        synonyms: [COGS, cost of goods]
+      
+      - name: oee_pct
+        expr: OEE_PCT
+        data_type: NUMBER
+        description: Overall Equipment Effectiveness percentage
+        synonyms: [OEE, equipment effectiveness]
+      
+      - name: roce_pct
+        expr: ROCE_PCT
+        data_type: NUMBER
+        description: Return on Capital Employed percentage (Cash metric)
+        synonyms: [ROCE, return on capital, capital efficiency]
+      
+      - name: free_cash_flow_usd
+        expr: FREE_CASH_FLOW_USD
+        data_type: NUMBER
+        description: Free cash flow in USD
+        synonyms: [FCF, free cash flow, cash flow]
+      
+      - name: cash_conversion_cycle_days
+        expr: CASH_CONVERSION_CYCLE_DAYS
+        data_type: NUMBER
+        description: Cash conversion cycle in days
+        synonyms: [CCC, cash cycle]
+      
+      - name: dioh_days
+        expr: DIOH_DAYS
+        data_type: NUMBER
+        description: Days Inventory On Hand
+        synonyms: [DIOH, inventory days, days of inventory]
+      
+      - name: dso_days
+        expr: DSO_DAYS
+        data_type: NUMBER
+        description: Days Sales Outstanding
+        synonyms: [DSO, receivable days]
+      
+      - name: dpo_days
+        expr: DPO_DAYS
+        data_type: NUMBER
+        description: Days Payable Outstanding
+        synonyms: [DPO, payable days]
+      
+      - name: cycle_stock_value
+        expr: CYCLE_STOCK_VALUE
+        data_type: NUMBER
+        description: Cycle stock inventory value in USD (driven by batch sizes)
+        synonyms: [cycle stock, cycle inventory]
+      
+      - name: safety_stock_value
+        expr: SAFETY_STOCK_VALUE
+        data_type: NUMBER
+        description: Safety stock inventory value in USD (driven by forecast error)
+        synonyms: [safety stock, buffer stock]
+      
+      - name: pipeline_stock_value
+        expr: PIPELINE_STOCK_VALUE
+        data_type: NUMBER
+        description: Pipeline/in-transit inventory value in USD (driven by lead time)
+        synonyms: [pipeline stock, WIP, in-transit inventory]
+      
+      - name: anticipation_stock_value
+        expr: ANTICIPATION_STOCK_VALUE
+        data_type: NUMBER
+        description: Anticipation stock value in USD (driven by seasonal builds)
+        synonyms: [anticipation stock, seasonal inventory]
+      
+      - name: strategic_stock_value
+        expr: STRATEGIC_STOCK_VALUE
+        data_type: NUMBER
+        description: Strategic stock value in USD (driven by risk hedging)
+        synonyms: [strategic stock, hedge inventory]
+      
+      - name: total_inventory_value
+        expr: TOTAL_INVENTORY_VALUE
+        data_type: NUMBER
+        description: Total inventory value in USD
+        synonyms: [total inventory, inventory]
+      
+      - name: nopat_usd
+        expr: NOPAT_USD
+        data_type: NUMBER
+        description: Net Operating Profit After Tax in USD
+        synonyms: [NOPAT, operating profit]
+      
+      - name: capital_employed_usd
+        expr: CAPITAL_EMPLOYED_USD
+        data_type: NUMBER
+        description: Total capital employed in USD
+        synonyms: [capital employed, capital]
+      
+      - name: eva_usd
+        expr: EVA_USD
+        data_type: NUMBER
+        description: Economic Value Added in USD
+        synonyms: [EVA, economic value]
+    
+    metrics:
+      - name: avg_otif
+        expr: AVG(performance.otif_pct)
+        description: Average OTIF percentage
+      
+      - name: avg_roce
+        expr: AVG(performance.roce_pct)
+        description: Average ROCE percentage
+      
+      - name: total_fcf
+        expr: SUM(performance.free_cash_flow_usd)
+        description: Total free cash flow
+      
+      - name: avg_margin
+        expr: AVG(performance.gross_margin_pct)
+        description: Average gross margin
+      
+      - name: total_inventory
+        expr: SUM(performance.total_inventory_value)
+        description: Total inventory value across all types
+      
+      - name: total_pipeline_stock
+        expr: SUM(performance.pipeline_stock_value)
+        description: Total pipeline stock value
+      
+      - name: total_safety_stock
+        expr: SUM(performance.safety_stock_value)
+        description: Total safety stock value
+      
+      - name: avg_ccc
+        expr: AVG(performance.cash_conversion_cycle_days)
+        description: Average cash conversion cycle
+      
+      - name: avg_lead_time
+        expr: AVG(performance.lead_time_days)
+        description: Average lead time in days
+
+  - name: inventory_structure
+    description: Inventory type definitions and economic drivers
+    base_table:
+      database: CAUSAL_CHAIN
+      schema: ANALYTICS
+      table: DIM_INVENTORY_STRUCTURE
+    primary_key:
+      columns: [INVENTORY_ID]
+    
+    dimensions:
+      - name: inventory_type
+        expr: INVENTORY_TYPE
+        data_type: TEXT
+        description: Type of inventory (CYCLE, SAFETY, PIPELINE, ANTICIPATION, STRATEGIC)
+        sample_values: ["CYCLE", "SAFETY", "PIPELINE", "ANTICIPATION", "STRATEGIC"]
+      
+      - name: economic_driver
+        expr: ECONOMIC_DRIVER
+        data_type: TEXT
+        description: What drives this inventory type
+      
+      - name: reduction_strategy
+        expr: REDUCTION_STRATEGY
+        data_type: TEXT
+        description: How to reduce this inventory type
+
+  - name: scenarios
+    description: Strategy scenario parameters and shock event modifiers
+    base_table:
+      database: CAUSAL_CHAIN
+      schema: ANALYTICS
+      table: SCENARIO_CONTROL
+    primary_key:
+      columns: [SCENARIO_ID]
+    
+    dimensions:
+      - name: scenario_strategy_mode
+        expr: STRATEGY_MODE
+        data_type: TEXT
+        description: Strategy mode for scenario
+      
+      - name: shock_event
+        expr: SHOCK_EVENT
+        data_type: TEXT
+        description: Shock event type (NULL, SUPPLY_DISRUPTION, PORT_STRIKE, DEMAND_SURGE)
+        sample_values: ["SUPPLY_DISRUPTION", "PORT_STRIKE", "DEMAND_SURGE"]
+      
+      - name: permissible_red
+        expr: PERMISSIBLE_RED
+        data_type: TEXT
+        description: Which metric corner is allowed to underperform
+      
+      - name: mandatory_green
+        expr: MANDATORY_GREEN
+        data_type: TEXT
+        description: Which metric corner must perform well
+      
+      - name: economic_bet
+        expr: ECONOMIC_BET
+        data_type: TEXT
+        description: Strategic rationale for this mode
+    
+    facts:
+      - name: service_weight
+        expr: SERVICE_WEIGHT
+        data_type: NUMBER
+        description: Weighting for service metrics in this scenario
+      
+      - name: cost_weight
+        expr: COST_WEIGHT
+        data_type: NUMBER
+        description: Weighting for cost metrics in this scenario
+      
+      - name: cash_weight
+        expr: CASH_WEIGHT
+        data_type: NUMBER
+        description: Weighting for cash metrics in this scenario
+      
+      - name: safety_stock_delta_pct
+        expr: SAFETY_STOCK_DELTA_PCT
+        data_type: NUMBER
+        description: Percentage change to safety stock from baseline
+
+  - name: predictions
+    description: Pre-computed ML predictions for what-if scenarios
+    base_table:
+      database: CAUSAL_CHAIN
+      schema: CONSUMPTION
+      table: PREDICTIVE_BRIDGE
+    primary_key:
+      columns: [BRIDGE_ID]
+    
+    dimensions:
+      - name: prediction_region
+        expr: REGION
+        data_type: TEXT
+        description: Region for prediction
+      
+      - name: model_source
+        expr: MODEL_SOURCE
+        data_type: TEXT
+        description: ML model used (PROPHET or XGBOOST)
+    
+    time_dimensions:
+      - name: prediction_month
+        expr: PERFORMANCE_MONTH
+        data_type: DATE
+        description: Month of prediction
+    
+    facts:
+      - name: predicted_fcf_usd
+        expr: PREDICTED_FCF_USD
+        data_type: NUMBER
+        description: Predicted free cash flow in USD
+        synonyms: [predicted cash flow, forecast FCF]
+      
+      - name: predicted_roce_pct
+        expr: PREDICTED_ROCE_PCT
+        data_type: NUMBER
+        description: Predicted ROCE percentage
+      
+      - name: predicted_safety_stock_usd
+        expr: PREDICTED_SAFETY_STOCK_USD
+        data_type: NUMBER
+        description: Predicted safety stock value
+      
+      - name: lead_time_impact_fcf
+        expr: LEAD_TIME_IMPACT_FCF
+        data_type: NUMBER
+        description: Dollar impact of lead time changes on FCF
+      
+      - name: forecast_error_impact_safety
+        expr: FORECAST_ERROR_IMPACT_SAFETY
+        data_type: NUMBER
+        description: Dollar impact of forecast error on safety stock
+
+relationships:
+  - name: predictions_to_scenarios
+    left_table: predictions
+    right_table: scenarios
+    relationship_columns:
+      - left_column: SCENARIO_ID
+        right_column: SCENARIO_ID
+
+verified_queries:
+  - name: pipeline_vs_roce_trend
+    question: "Show me the trend of Pipeline Stock vs. ROCE for the last year"
+    use_as_onboarding_question: true
+    verified_at: 1737820800
+    verified_by: demo_admin
+    sql: |
+      SELECT 
+        PERFORMANCE_MONTH,
+        SUM(PIPELINE_STOCK_VALUE) AS PIPELINE_STOCK,
+        AVG(ROCE_PCT) AS ROCE
+      FROM __performance
+      WHERE PERFORMANCE_MONTH >= DATEADD(YEAR, -1, CURRENT_DATE())
+      GROUP BY PERFORMANCE_MONTH
+      ORDER BY PERFORMANCE_MONTH
+
+  - name: inventory_decomposition
+    question: "What is the breakdown of inventory by type?"
+    use_as_onboarding_question: true
+    verified_at: 1737820800
+    verified_by: demo_admin
+    sql: |
+      SELECT 
+        'CYCLE' AS INVENTORY_TYPE, SUM(CYCLE_STOCK_VALUE) AS VALUE
+      FROM __performance
+      UNION ALL
+      SELECT 'SAFETY', SUM(SAFETY_STOCK_VALUE) FROM __performance
+      UNION ALL
+      SELECT 'PIPELINE', SUM(PIPELINE_STOCK_VALUE) FROM __performance
+      UNION ALL
+      SELECT 'ANTICIPATION', SUM(ANTICIPATION_STOCK_VALUE) FROM __performance
+      UNION ALL
+      SELECT 'STRATEGIC', SUM(STRATEGIC_STOCK_VALUE) FROM __performance
+
+  - name: strategy_tradeoffs
+    question: "Compare OTIF, Gross Margin, and ROCE across strategy modes"
+    use_as_onboarding_question: true
+    verified_at: 1737820800
+    verified_by: demo_admin
+    sql: |
+      SELECT 
+        STRATEGY_MODE,
+        AVG(OTIF_PCT) AS AVG_OTIF,
+        AVG(GROSS_MARGIN_PCT) AS AVG_MARGIN,
+        AVG(ROCE_PCT) AS AVG_ROCE
+      FROM __performance
+      GROUP BY STRATEGY_MODE
+      ORDER BY STRATEGY_MODE
+
+  - name: roce_sensitivity_safety_stock
+    question: "How does a 10% reduction in Safety Stock impact ROCE?"
+    verified_at: 1737820800
+    verified_by: demo_admin
+    sql: |
+      SELECT 
+        AVG(ROCE_PCT) AS CURRENT_ROCE,
+        AVG(ROCE_PCT) + (AVG(SAFETY_STOCK_VALUE) * 0.10 / AVG(CAPITAL_EMPLOYED_USD) * 100) AS PROJECTED_ROCE,
+        AVG(SAFETY_STOCK_VALUE) * 0.10 AS CAPITAL_FREED
+      FROM __performance
+
+  - name: regional_performance
+    question: "Show performance by region for the last quarter"
+    verified_at: 1737820800
+    verified_by: demo_admin
+    sql: |
+      SELECT 
+        REGION,
+        AVG(OTIF_PCT) AS SERVICE_OTIF,
+        AVG(GROSS_MARGIN_PCT) AS COST_MARGIN,
+        AVG(ROCE_PCT) AS CASH_ROCE,
+        SUM(FREE_CASH_FLOW_USD) AS TOTAL_FCF
+      FROM __performance
+      WHERE PERFORMANCE_MONTH >= DATEADD(QUARTER, -1, CURRENT_DATE())
+      GROUP BY REGION
+      ORDER BY TOTAL_FCF DESC
+
+  - name: forecast_error_impact
+    question: "What is the impact of forecast error on safety stock?"
+    verified_at: 1737820800
+    verified_by: demo_admin
+    sql: |
+      SELECT 
+        CASE 
+          WHEN FORECAST_MAPE_PCT < 15 THEN 'LOW (<15%)'
+          WHEN FORECAST_MAPE_PCT < 25 THEN 'MEDIUM (15-25%)'
+          ELSE 'HIGH (>25%)'
+        END AS FORECAST_ERROR_BAND,
+        AVG(SAFETY_STOCK_VALUE) AS AVG_SAFETY_STOCK,
+        AVG(ROCE_PCT) AS AVG_ROCE
+      FROM __performance
+      GROUP BY FORECAST_ERROR_BAND
+      ORDER BY AVG_SAFETY_STOCK

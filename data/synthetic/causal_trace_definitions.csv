@@ -1,0 +1,11 @@
+SOURCE_METRIC,TARGET_METRIC,RELATIONSHIP_TYPE,CAUSAL_WEIGHT,DESCRIPTION,EXAMPLE_SCENARIO,TRACE_ID
+FORECAST_MAPE_PCT,SAFETY_STOCK_VALUE,POSITIVE,0.85,Higher forecast error requires larger safety stock buffers to maintain service levels,A 5% increase in MAPE typically drives a 12-15% increase in safety stock,1
+SAFETY_STOCK_VALUE,DIOH_DAYS,POSITIVE,0.72,Safety stock directly increases days of inventory on hand,$1M in safety stock adds approximately 2-3 days to DIOH,2
+DIOH_DAYS,ROCE_PCT,NEGATIVE,0.68,"Higher inventory days increase capital employed, reducing return on capital",Each 5-day increase in DIOH reduces ROCE by approximately 0.3-0.5%,3
+LEAD_TIME_DAYS,PIPELINE_STOCK_VALUE,POSITIVE,0.92,Longer lead times directly increase in-transit and work-in-process inventory,A 10-day lead time increase adds $1.5-2M to pipeline stock,4
+PIPELINE_STOCK_VALUE,FREE_CASH_FLOW_USD,NEGATIVE,0.78,"Pipeline stock ties up working capital, reducing free cash flow",$1M pipeline stock increase reduces FCF by approximately $950K,5
+OEE_PCT,COGS_USD,NEGATIVE,0.65,Higher overall equipment effectiveness reduces cost per unit,A 5% OEE improvement reduces COGS by approximately 2-3%,6
+BATCH_SIZE,CYCLE_STOCK_VALUE,POSITIVE,0.88,Larger batch sizes increase average cycle stock inventory,Doubling batch size increases cycle stock by approximately 50%,7
+CYCLE_STOCK_VALUE,CAPITAL_EMPLOYED_USD,POSITIVE,0.75,Cycle stock is a direct component of working capital,Cycle stock flows 1:1 into capital employed,8
+OTIF_PCT,NET_SALES_GROWTH_PCT,POSITIVE,0.55,Better service levels drive customer retention and sales growth,Each 1% OTIF improvement correlates with 0.3-0.5% revenue retention,9
+SKU_BREADTH,FORECAST_MAPE_PCT,POSITIVE,0.62,More SKUs increase demand variability and reduce forecast accuracy,10% SKU proliferation typically increases MAPE by 2-4%,10

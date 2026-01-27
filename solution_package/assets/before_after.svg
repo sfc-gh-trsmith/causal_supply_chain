@@ -1,0 +1,196 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="serviceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#16a34a"/>
+    </linearGradient>
+    <linearGradient id="costGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+    <linearGradient id="cashGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#2563eb"/>
+    </linearGradient>
+    <linearGradient id="snowflakeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#29B5E8"/>
+      <stop offset="100%" style="stop-color:#0891b2"/>
+    </linearGradient>
+    <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+    <filter id="glowEffect">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="700" fill="url(#bgGrad)"/>
+  
+  <!-- Header -->
+  <text x="600" y="50" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="500" fill="#94a3b8" letter-spacing="3">THE TRANSFORMATION</text>
+  
+  <!-- BEFORE Section -->
+  <g transform="translate(50, 80)">
+    <!-- Before header -->
+    <rect x="0" y="0" width="500" height="40" rx="8" fill="#dc2626" opacity="0.2"/>
+    <text x="250" y="28" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" fill="#ef4444">BEFORE: Fragmented Metrics</text>
+    
+    <!-- Three silos -->
+    <g transform="translate(40, 70)">
+      <!-- Sales silo -->
+      <rect x="0" y="0" width="120" height="200" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" filter="url(#dropShadow)"/>
+      <rect x="0" y="0" width="120" height="4" rx="2" fill="url(#serviceGrad)"/>
+      <text x="60" y="35" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#22c55e">SALES</text>
+      <text x="60" y="60" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" fill="#94a3b8">"Revenue up!"</text>
+      <line x1="20" y1="80" x2="100" y2="80" stroke="#334155" stroke-width="1"/>
+      <text x="60" y="105" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" fill="#64748b">Optimizes</text>
+      <text x="60" y="125" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#22c55e">SERVICE</text>
+      <text x="60" y="155" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748b">More SKUs</text>
+      <text x="60" y="170" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748b">Faster delivery</text>
+      <text x="60" y="185" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748b">Fill rate focus</text>
+    </g>
+    
+    <g transform="translate(190, 70)">
+      <!-- Operations silo -->
+      <rect x="0" y="0" width="120" height="200" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" filter="url(#dropShadow)"/>
+      <rect x="0" y="0" width="120" height="4" rx="2" fill="url(#costGrad)"/>
+      <text x="60" y="35" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#f59e0b">OPERATIONS</text>
+      <text x="60" y="60" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" fill="#94a3b8">"Unit cost down!"</text>
+      <line x1="20" y1="80" x2="100" y2="80" stroke="#334155" stroke-width="1"/>
+      <text x="60" y="105" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" fill="#64748b">Optimizes</text>
+      <text x="60" y="125" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#f59e0b">COST</text>
+      <text x="60" y="155" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748b">Larger batches</text>
+      <text x="60" y="170" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748b">High utilization</text>
+      <text x="60" y="185" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748b">OEE focus</text>
+    </g>
+    
+    <g transform="translate(340, 70)">
+      <!-- Finance silo -->
+      <rect x="0" y="0" width="120" height="200" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" filter="url(#dropShadow)"/>
+      <rect x="0" y="0" width="120" height="4" rx="2" fill="url(#cashGrad)"/>
+      <text x="60" y="35" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#3b82f6">FINANCE</text>
+      <text x="60" y="60" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" fill="#94a3b8">"FCF is down!"</text>
+      <line x1="20" y1="80" x2="100" y2="80" stroke="#334155" stroke-width="1"/>
+      <text x="60" y="105" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" fill="#64748b">Optimizes</text>
+      <text x="60" y="125" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#3b82f6">CASH</text>
+      <text x="60" y="155" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748b">Cut inventory</text>
+      <text x="60" y="170" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748b">Reduce buffers</text>
+      <text x="60" y="185" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748b">ROCE focus</text>
+    </g>
+    
+    <!-- Conflict arrows -->
+    <path d="M160,170 L190,170" stroke="#ef4444" stroke-width="2" marker-end="url(#arrowRed)"/>
+    <path d="M190,170 L160,170" stroke="#ef4444" stroke-width="2" marker-start="url(#arrowRed)"/>
+    <path d="M310,170 L340,170" stroke="#ef4444" stroke-width="2"/>
+    <path d="M340,170 L310,170" stroke="#ef4444" stroke-width="2"/>
+    
+    <!-- Problem callout -->
+    <rect x="0" y="290" width="500" height="60" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="1" stroke-dasharray="4"/>
+    <text x="250" y="318" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#ef4444">NO ONE OWNS THE TRADE-OFFS</text>
+    <text x="250" y="338" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" fill="#94a3b8">2 weeks + 5 people + 3 spreadsheets to answer "Why did ROCE drop?"</text>
+  </g>
+  
+  <!-- Arrow between sections -->
+  <g transform="translate(565, 270)">
+    <rect x="0" y="0" width="70" height="70" rx="35" fill="url(#snowflakeGrad)" filter="url(#glowEffect)"/>
+    <path d="M20,35 L50,35 M40,25 L50,35 L40,45" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+  
+  <!-- AFTER Section -->
+  <g transform="translate(650, 80)">
+    <!-- After header -->
+    <rect x="0" y="0" width="500" height="40" rx="8" fill="#22c55e" opacity="0.2"/>
+    <text x="250" y="28" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" fill="#22c55e">AFTER: Unified Causal Scorecard</text>
+    
+    <!-- Strategy selector -->
+    <g transform="translate(100, 60)">
+      <rect x="0" y="0" width="300" height="35" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+      <rect x="5" y="5" width="90" height="25" rx="4" fill="url(#serviceGrad)"/>
+      <text x="50" y="23" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="white">GROWTH</text>
+      <rect x="105" y="5" width="90" height="25" rx="4" fill="transparent"/>
+      <text x="150" y="23" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="500" fill="#64748b">MARGIN</text>
+      <rect x="205" y="5" width="90" height="25" rx="4" fill="transparent"/>
+      <text x="250" y="23" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="500" fill="#64748b">CASH</text>
+    </g>
+    
+    <!-- Triangle visualization -->
+    <g transform="translate(120, 110)">
+      <!-- Triangle outline -->
+      <polygon points="130,10 10,160 250,160" fill="none" stroke="#334155" stroke-width="2"/>
+      <polygon points="130,10 10,160 250,160" fill="#1e293b" opacity="0.5"/>
+      
+      <!-- Service corner (top) - active/glowing -->
+      <circle cx="130" cy="15" r="35" fill="#22c55e" opacity="0.3" filter="url(#glowEffect)"/>
+      <circle cx="130" cy="15" r="25" fill="#1e293b" stroke="#22c55e" stroke-width="3"/>
+      <text x="130" y="8" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="600" fill="#22c55e">SERVICE</text>
+      <text x="130" y="22" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" fill="white">94%</text>
+      
+      <!-- Cost corner (bottom left) -->
+      <circle cx="15" cy="155" r="25" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+      <text x="15" y="148" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="600" fill="#f59e0b">COST</text>
+      <text x="15" y="162" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" fill="white">32%</text>
+      
+      <!-- Cash corner (bottom right) -->
+      <circle cx="245" cy="155" r="25" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+      <text x="245" y="148" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="600" fill="#3b82f6">CASH</text>
+      <text x="245" y="162" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" fill="white">14.2%</text>
+      
+      <!-- Bidirectional arrows -->
+      <line x1="55" y1="90" x2="95" y2="50" stroke="#29B5E8" stroke-width="1.5" opacity="0.6"/>
+      <line x1="165" y1="50" x2="205" y2="90" stroke="#29B5E8" stroke-width="1.5" opacity="0.6"/>
+      <line x1="55" y1="155" x2="205" y2="155" stroke="#29B5E8" stroke-width="1.5" opacity="0.6"/>
+    </g>
+    
+    <!-- Trade-off band -->
+    <rect x="0" y="295" width="500" height="55" rx="8" fill="#1e293b" stroke="#29B5E8" stroke-width="1"/>
+    <text x="250" y="315" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="600" fill="#29B5E8">TRADE-OFF BAND</text>
+    <text x="250" y="338" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" fill="#e2e8f0">
+      <tspan fill="#22c55e">Service +2.4%</tspan>
+      <tspan fill="#64748b"> | </tspan>
+      <tspan fill="#ef4444">Margin -1.1%</tspan>
+      <tspan fill="#64748b"> | </tspan>
+      <tspan fill="#ef4444">Cash -4 days</tspan>
+    </text>
+  </g>
+  
+  <!-- Bottom comparison metrics -->
+  <g transform="translate(50, 520)">
+    <rect x="0" y="0" width="500" height="80" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="1" opacity="0.5"/>
+    <text x="250" y="25" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#ef4444">Before Metrics</text>
+    <text x="100" y="55" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" fill="#94a3b8">Time to insight:</text>
+    <text x="100" y="70" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#ef4444">2 weeks</text>
+    <text x="250" y="55" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" fill="#94a3b8">Trade-off visibility:</text>
+    <text x="250" y="70" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#ef4444">None</text>
+    <text x="400" y="55" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" fill="#94a3b8">Scenario testing:</text>
+    <text x="400" y="70" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#ef4444">Manual</text>
+  </g>
+  
+  <g transform="translate(650, 520)">
+    <rect x="0" y="0" width="500" height="80" rx="8" fill="#1e293b" stroke="#22c55e" stroke-width="1"/>
+    <text x="250" y="25" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#22c55e">After Metrics</text>
+    <text x="100" y="55" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" fill="#94a3b8">Time to insight:</text>
+    <text x="100" y="70" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#22c55e">&lt;1 second</text>
+    <text x="250" y="55" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" fill="#94a3b8">Trade-off visibility:</text>
+    <text x="250" y="70" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#22c55e">Real-time</text>
+    <text x="400" y="55" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" fill="#94a3b8">Scenario testing:</text>
+    <text x="400" y="70" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#22c55e">Instant</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="600" y="640" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" fill="#64748b">Project Causal Chain: Strategy Simulator</text>
+  
+  <!-- Snowflake logo -->
+  <g transform="translate(1100, 650)">
+    <circle cx="0" cy="0" r="18" fill="none" stroke="#29B5E8" stroke-width="2"/>
+    <path d="M0,-10 L0,10 M-8.7,-5 L8.7,5 M-8.7,5 L8.7,-5" stroke="#29B5E8" stroke-width="2" stroke-linecap="round"/>
+  </g>
+</svg>

@@ -1,0 +1,6 @@
+INVENTORY_ID,INVENTORY_TYPE,DESCRIPTION,ECONOMIC_DRIVER,TYPICAL_RANGE_PCT_LOW,TYPICAL_RANGE_PCT_HIGH,REDUCTION_STRATEGY
+1,CYCLE,"Stock created by ordering or producing in batches. The saw-tooth pattern of order, consume, reorder.",Batch sizes and order frequencies,25,40,"Reduce batch sizes, increase order frequency, implement Kanban systems"
+2,SAFETY,Buffer against variability in demand and supply. Insurance against uncertainty.,Forecast error and supply variability,15,30,"Improve forecast accuracy, reduce supplier lead time variability, implement demand sensing"
+3,PIPELINE,Work in process and in-transit inventory. Exists purely because of lead time.,Transit lead times and manufacturing cycle times,10,25,"Reduce lead times, nearshore manufacturing, optimize logistics routes"
+4,ANTICIPATION,Inventory built ahead of known events such as seasonal demand or planned shutdowns.,Seasonal patterns and planned capacity constraints,5,15,"Level production scheduling, flexible capacity, postponement strategies"
+5,STRATEGIC,Inventory held against uncertain future events such as expected shortages or geopolitical risk.,Geopolitical risk and commodity hedging decisions,5,20,"Diversify supplier base, qualify alternate materials, implement risk monitoring"
