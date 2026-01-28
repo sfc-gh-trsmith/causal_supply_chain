@@ -548,6 +548,89 @@ baseline_latest = baseline_df.iloc[0] if baseline_df is not None and len(baselin
 
 badge_class = f"{strategy_mode.lower()}-badge"
 
+st.subheader("Trade-Off Triangle")
+
+service_weight = float(latest.get('SERVICE_WEIGHT', 0.33))
+cost_weight = float(latest.get('COST_WEIGHT', 0.33))
+cash_weight = float(latest.get('CASH_WEIGHT', 0.33))
+
+vertices = {'SERVICE': (0.5, 0.9), 'COST': (0.1, 0.1), 'CASH': (0.9, 0.1)}
+active_mapping = {'GROWTH': 'SERVICE', 'MARGIN': 'COST', 'CASH': 'CASH'}
+active_corner = active_mapping.get(strategy_mode, 'SERVICE')
+
+service_val = float(latest.get('OTIF_PCT', 0))
+cost_val = float(latest.get('GROSS_MARGIN_PCT', 0))
+cash_val = float(latest.get('ROCE_PCT', 0))
+
+values = {'SERVICE': service_val, 'COST': cost_val, 'CASH': cash_val}
+colors_map = {'SERVICE': SNOWFLAKE_BLUE, 'COST': VALENCIA_ORANGE, 'CASH': PURPLE_MOON}
+weights = {'SERVICE': service_weight, 'COST': cost_weight, 'CASH': cash_weight}
+
+tri_fig = go.Figure()
+
+tri_fig.add_trace(go.Scatter(
+    x=[0.1, 0.5, 0.9, 0.1], y=[0.1, 0.9, 0.1, 0.1],
+    mode='lines', line=dict(color=BORDER, width=2),
+    fill='toself', fillcolor='rgba(30, 41, 59, 0.5)', hoverinfo='skip'
+))
+
+for corner, (x, y) in vertices.items():
+    val = values[corner]
+    is_active = corner == active_corner
+    color = colors_map[corner]
+    weight = weights[corner]
+    marker_size = 35 + (weight * 30)
+    
+    if is_active:
+        tri_fig.add_trace(go.Scatter(
+            x=[x], y=[y], mode='markers',
+            marker=dict(size=marker_size + 15, color=color, opacity=0.3, line=dict(width=0)),
+            hoverinfo='skip'
+        ))
+    
+    tri_fig.add_trace(go.Scatter(
+        x=[x], y=[y], mode='markers+text',
+        marker=dict(size=marker_size, color=CARD_BG if not is_active else color,
+                    line=dict(color=color, width=3 if is_active else 2), opacity=1 if is_active else 0.7),
+        text=[f"<b>{corner}</b><br>{val:.1f}%"],
+        textposition='middle center',
+        textfont=dict(color='white' if is_active else TEXT, size=11),
+        hovertemplate=f'{corner}<br>Value: {val:.1f}%<br>Weight: {weight:.0%}<extra></extra>'
+    ))
+
+tri_fig.update_layout(
+    showlegend=False, xaxis=dict(visible=False, range=[-0.05, 1.05]),
+    yaxis=dict(visible=False, range=[-0.05, 1.1], scaleanchor='x'),
+    height=350, margin=dict(l=20, r=20, t=40, b=20),
+    title=dict(text=f"Active Mode: {strategy_mode}", font=dict(size=12))
+)
+tri_fig = apply_dark_theme(tri_fig)
+
+tri_col1, tri_col2 = st.columns([1, 1])
+with tri_col1:
+    st.plotly_chart(tri_fig, use_container_width=True)
+
+with tri_col2:
+    mandatory = latest.get('MANDATORY_GREEN', '')
+    permissible = latest.get('PERMISSIBLE_RED', '')
+    
+    st.markdown(f"""
+    **Current Strategy Trade-offs:**
+    
+    - **Mandatory (Green):** {mandatory} - Must maintain performance
+    - **Permissible (Red):** {permissible} - Acceptable to underperform
+    
+    **Weights:** Service {service_weight:.0%} | Cost {cost_weight:.0%} | Cash {cash_weight:.0%}
+    """)
+    
+    metrics_df = pd.DataFrame({
+        'Corner': ['SERVICE', 'COST', 'CASH'],
+        'Primary Metric': ['OTIF %', 'Gross Margin %', 'ROCE %'],
+        'Value': [service_val, cost_val, cash_val],
+        'Weight': [service_weight, cost_weight, cash_weight]
+    })
+    st.dataframe(metrics_df, hide_index=True, use_container_width=True)
+
 st.markdown("---")
 
 roce_val = float(latest.get('ROCE_PCT', 0))
@@ -676,90 +759,6 @@ with sens_col2:
     **{sensitivity['roce_delta_bps']:.0f} basis points**, freeing **${capital_freed_m:.1f}M** in capital.
     """)
 
-st.subheader("Trade-Off Triangle")
-
-service_weight = float(latest.get('SERVICE_WEIGHT', 0.33))
-cost_weight = float(latest.get('COST_WEIGHT', 0.33))
-cash_weight = float(latest.get('CASH_WEIGHT', 0.33))
-
-vertices = {'SERVICE': (0.5, 0.9), 'COST': (0.1, 0.1), 'CASH': (0.9, 0.1)}
-active_mapping = {'GROWTH': 'SERVICE', 'MARGIN': 'COST', 'CASH': 'CASH'}
-active_corner = active_mapping.get(strategy_mode, 'SERVICE')
-
-service_val = float(latest.get('OTIF_PCT', 0))
-cost_val = float(latest.get('GROSS_MARGIN_PCT', 0))
-cash_val = float(latest.get('ROCE_PCT', 0))
-
-values = {'SERVICE': service_val, 'COST': cost_val, 'CASH': cash_val}
-colors_map = {'SERVICE': SNOWFLAKE_BLUE, 'COST': VALENCIA_ORANGE, 'CASH': PURPLE_MOON}
-weights = {'SERVICE': service_weight, 'COST': cost_weight, 'CASH': cash_weight}
-
-tri_fig = go.Figure()
-
-tri_fig.add_trace(go.Scatter(
-    x=[0.1, 0.5, 0.9, 0.1], y=[0.1, 0.9, 0.1, 0.1],
-    mode='lines', line=dict(color=BORDER, width=2),
-    fill='toself', fillcolor='rgba(30, 41, 59, 0.5)', hoverinfo='skip'
-))
-
-for corner, (x, y) in vertices.items():
-    val = values[corner]
-    is_active = corner == active_corner
-    color = colors_map[corner]
-    weight = weights[corner]
-    marker_size = 35 + (weight * 30)
-    
-    if is_active:
-        tri_fig.add_trace(go.Scatter(
-            x=[x], y=[y], mode='markers',
-            marker=dict(size=marker_size + 15, color=color, opacity=0.3, line=dict(width=0)),
-            hoverinfo='skip'
-        ))
-    
-    tri_fig.add_trace(go.Scatter(
-        x=[x], y=[y], mode='markers+text',
-        marker=dict(size=marker_size, color=CARD_BG if not is_active else color,
-                    line=dict(color=color, width=3 if is_active else 2), opacity=1 if is_active else 0.7),
-        text=[f"<b>{corner}</b><br>{val:.1f}%"],
-        textposition='middle center',
-        textfont=dict(color='white' if is_active else TEXT, size=11),
-        hovertemplate=f'{corner}<br>Value: {val:.1f}%<br>Weight: {weight:.0%}<extra></extra>'
-    ))
-
-tri_fig.update_layout(
-    showlegend=False, xaxis=dict(visible=False, range=[-0.05, 1.05]),
-    yaxis=dict(visible=False, range=[-0.05, 1.1], scaleanchor='x'),
-    height=350, margin=dict(l=20, r=20, t=40, b=20),
-    title=dict(text=f"Active Mode: {strategy_mode}", font=dict(size=12))
-)
-tri_fig = apply_dark_theme(tri_fig)
-
-tri_col1, tri_col2 = st.columns([1, 1])
-with tri_col1:
-    st.plotly_chart(tri_fig, use_container_width=True)
-
-with tri_col2:
-    mandatory = latest.get('MANDATORY_GREEN', '')
-    permissible = latest.get('PERMISSIBLE_RED', '')
-    
-    st.markdown(f"""
-    **Current Strategy Trade-offs:**
-    
-    - **Mandatory (Green):** {mandatory} - Must maintain performance
-    - **Permissible (Red):** {permissible} - Acceptable to underperform
-    
-    **Weights:** Service {service_weight:.0%} | Cost {cost_weight:.0%} | Cash {cash_weight:.0%}
-    """)
-    
-    metrics_df = pd.DataFrame({
-        'Corner': ['SERVICE', 'COST', 'CASH'],
-        'Primary Metric': ['OTIF %', 'Gross Margin %', 'ROCE %'],
-        'Value': [service_val, cost_val, cash_val],
-        'Weight': [service_weight, cost_weight, cash_weight]
-    })
-    st.dataframe(metrics_df, hide_index=True, use_container_width=True)
-
-st.markdown("---")
 st.subheader("Interactive Causal Trace")
 
 def render_metrics_tree_dashboard(data_df, traces_df, strategy_mode):
