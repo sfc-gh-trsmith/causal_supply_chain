@@ -53,8 +53,8 @@ def load_dashboard_data(_session, strategy_mode: str, shock_event: str) -> Dict[
                 f.NOPAT_USD, f.CAPITAL_EMPLOYED_USD, f.EVA_USD,
                 s.SERVICE_WEIGHT, s.COST_WEIGHT, s.CASH_WEIGHT,
                 s.PERMISSIBLE_RED, s.MANDATORY_GREEN, s.ECONOMIC_BET
-            FROM ANALYTICS.FACT_PERFORMANCE_SNAPSHOT f
-            JOIN ANALYTICS.SCENARIO_CONTROL s 
+            FROM STRATEGY_SIMULATOR.FACT_PERFORMANCE_SNAPSHOT f
+            JOIN ATOMIC.SCENARIO_CONTROL s 
                 ON f.STRATEGY_MODE = s.STRATEGY_MODE 
                 AND s.SHOCK_EVENT {shock_filter}
             WHERE f.STRATEGY_MODE = '{strategy_mode}'
@@ -68,14 +68,14 @@ def load_dashboard_data(_session, strategy_mode: str, shock_event: str) -> Dict[
                 p.LEAD_TIME_IMPACT_FCF, p.FORECAST_ERROR_IMPACT_SAFETY,
                 p.FCF_LOWER_BOUND, p.FCF_UPPER_BOUND,
                 p.ROCE_LOWER_BOUND, p.ROCE_UPPER_BOUND
-            FROM CONSUMPTION.PREDICTIVE_BRIDGE p
-            JOIN ANALYTICS.SCENARIO_CONTROL s ON p.SCENARIO_ID = s.SCENARIO_ID
+            FROM STRATEGY_SIMULATOR.PREDICTIVE_BRIDGE p
+            JOIN ATOMIC.SCENARIO_CONTROL s ON p.SCENARIO_ID = s.SCENARIO_ID
             WHERE s.STRATEGY_MODE = '{strategy_mode}'
             AND s.SHOCK_EVENT {shock_filter}
             ORDER BY p.PERFORMANCE_MONTH DESC
         """,
         'causal_traces': """
-            SELECT * FROM INTELLIGENCE.CAUSAL_TRACE_DEFINITIONS 
+            SELECT * FROM STRATEGY_SIMULATOR.V_CAUSAL_TRACES 
             ORDER BY CAUSAL_WEIGHT DESC
         """
     }
@@ -91,8 +91,8 @@ def load_baseline_data(_session, strategy_mode: str) -> pd.DataFrame:
             f.OTIF_PCT, f.GROSS_MARGIN_PCT, f.ROCE_PCT, f.FREE_CASH_FLOW_USD,
             f.SAFETY_STOCK_VALUE, f.PIPELINE_STOCK_VALUE, f.TOTAL_INVENTORY_VALUE,
             f.CAPITAL_EMPLOYED_USD, f.EVA_USD
-        FROM ANALYTICS.FACT_PERFORMANCE_SNAPSHOT f
-        JOIN ANALYTICS.SCENARIO_CONTROL s 
+        FROM STRATEGY_SIMULATOR.FACT_PERFORMANCE_SNAPSHOT f
+        JOIN ATOMIC.SCENARIO_CONTROL s 
             ON f.STRATEGY_MODE = s.STRATEGY_MODE 
             AND s.SHOCK_EVENT IS NULL
         WHERE f.STRATEGY_MODE = '{strategy_mode}'

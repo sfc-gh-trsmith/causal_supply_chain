@@ -9,7 +9,7 @@ tables:
     description: Monthly supply chain performance metrics across Service, Cost, and Cash dimensions
     base_table:
       database: CAUSAL_CHAIN
-      schema: ANALYTICS
+      schema: STRATEGY_SIMULATOR
       table: FACT_PERFORMANCE_SNAPSHOT
     primary_key:
       columns: [SNAPSHOT_ID]
@@ -229,7 +229,7 @@ tables:
     description: Inventory type definitions and economic drivers
     base_table:
       database: CAUSAL_CHAIN
-      schema: ANALYTICS
+      schema: ATOMIC
       table: DIM_INVENTORY_STRUCTURE
     primary_key:
       columns: [INVENTORY_ID]
@@ -255,7 +255,7 @@ tables:
     description: Strategy scenario parameters and shock event modifiers
     base_table:
       database: CAUSAL_CHAIN
-      schema: ANALYTICS
+      schema: ATOMIC
       table: SCENARIO_CONTROL
     primary_key:
       columns: [SCENARIO_ID]
@@ -312,7 +312,7 @@ tables:
     description: Pre-computed ML predictions for what-if scenarios
     base_table:
       database: CAUSAL_CHAIN
-      schema: CONSUMPTION
+      schema: STRATEGY_SIMULATOR
       table: PREDICTIVE_BRIDGE
     primary_key:
       columns: [BRIDGE_ID]

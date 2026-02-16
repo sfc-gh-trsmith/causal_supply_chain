@@ -353,7 +353,7 @@ def search_qbr_docs(session, query):
     try:
         result = session.sql(f"""
             SELECT DOC_NAME, QUARTER, YEAR, CONTENT_TEXT
-            FROM INTELLIGENCE.QBR_DOCUMENTS
+            FROM RAW.QBR_DOCUMENTS
             WHERE CONTAINS(LOWER(CONTENT_TEXT), LOWER('{query}'))
             LIMIT 3
         """).to_pandas()

@@ -37,7 +37,7 @@
 
 * **Objective:** The demo uses **pre-calculated** ML outputs. A Snowpark ML notebook was used to generate "What-if" features (e.g., *Predicted_Safety_Stock* given *Variable_Lead_Time*).
 * **Target Variable:** `ADJUSTED_FCF`
-* **Algorithm Choice:** Historical outputs from Prophet and XGBoost are stored in `ML_PREDICTION_REGISTRY`.
+* **Algorithm Choice:** Historical outputs from Prophet and XGBoost are stored in `ML_MODEL_REGISTRY`.
 * **Inference Output:** Static results written to `CONSUMPTION.PREDICTIVE_BRIDGE`.
 
 ### 4. Cortex Intelligence Specifications

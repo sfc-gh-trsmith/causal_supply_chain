@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 744 400">
+  <defs>
+    <linearGradient id="snowflakeLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#29B5E8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0EA5E9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="overlayGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1a;stop-opacity:0.80" />
+      <stop offset="50%" style="stop-color:#0a0f1a;stop-opacity:0.70" />
+      <stop offset="100%" style="stop-color:#0a0f1a;stop-opacity:0.85" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#29B5E8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0EA5E9;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <image xlink:href="../images/warehouse_background.jpg" x="0" y="0" width="744" height="400" preserveAspectRatio="xMidYMid slice"/>
+  
+  <rect width="744" height="400" fill="url(#overlayGrad)"/>
+  <rect x="0" y="0" width="4" height="400" fill="url(#accentGrad)"/>
+  
+  <g transform="translate(550, 20) scale(1.3)">
+    <path fill="url(#snowflakeLogoGrad)" d="M59.4,31.1c0-0.4-0.3-0.8-0.6-1.1l-5.8-3.2l6-3.9c0.4-0.2,0.6-0.7,0.6-1.1c0-0.4-0.3-0.8-0.6-1.1L32.4,6.1c-0.4-0.2-0.8-0.2-1.2,0l-26,14.5c-0.4,0.2-0.6,0.6-0.6,1c0,0.4,0.2,0.9,0.6,1.1l6,3.9l-6,3.3c-0.4,0.2-0.6,0.6-0.6,1.1c0,0.4,0.2,0.9,0.6,1.1l5.9,3.7l-5.8,3.2c-0.4,0.2-0.6,0.6-0.6,1.1c0,0.4,0.2,0.9,0.6,1.1l26.3,16.6c0.2,0.1,0.4,0.2,0.7,0.2c0.2,0,0.5-0.1,0.7-0.2l26.2-16.6c0.4-0.2,0.6-0.7,0.6-1.1c0-0.4-0.3-0.8-0.6-1.1l-5.8-3.2l5.9-3.7C59.2,31.9,59.4,31.5,59.4,31.1z M31.8,8.6l24.1,13.3L32,37.3L8.2,21.8L31.8,8.6z M50.6,37.4l5.1,2.8L32,55.4L8.2,40.3l5.2-2.9l18,11.4c0.2,0.1,0.4,0.2,0.7,0.2c0.2,0,0.5-0.1,0.7-0.2L50.6,37.4C50.5,37.4,50.5,37.4,50.6,37.4z M32,46.2L8.2,31.2l5.3-2.9c0,0,0,0,0,0l17.8,11.6c0.2,0.1,0.4,0.2,0.7,0.2c0.2,0,0.5-0.1,0.7-0.2l17.9-11.5c0,0,0,0,0,0l5.1,2.8L32,46.2z"/>
+  </g>
+  
+  <text x="372" y="145" font-family="system-ui, -apple-system, sans-serif" 
+        font-size="36" font-weight="700" fill="#FFFFFF" 
+        text-anchor="middle" letter-spacing="1">
+    Causal Supply Chain Analytics
+  </text>
+  <text x="372" y="195" font-family="system-ui, -apple-system, sans-serif" 
+        font-size="28" font-weight="700" fill="#29B5E8" 
+        text-anchor="middle" letter-spacing="1">
+    From Siloed Metrics to ROCE Visibility
+  </text>
+  <text x="372" y="240" font-family="system-ui, sans-serif" 
+        font-size="14" font-weight="400" fill="#E2E8F0" 
+        text-anchor="middle" letter-spacing="1">
+    Connecting operational decisions to financial outcomes
+  </text>
+  
+  <g transform="translate(172, 270)">
+    <rect x="0" y="0" width="130" height="50" rx="6" fill="rgba(15,23,42,0.85)" stroke="#334155" stroke-width="1"/>
+    <text x="65" y="22" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#FFFFFF" text-anchor="middle">Service</text>
+    <text x="65" y="40" font-family="system-ui, sans-serif" font-size="10" fill="#94A3B8" text-anchor="middle">Fill Rate, Lead Time</text>
+  </g>
+  <g transform="translate(312, 270)">
+    <rect x="0" y="0" width="130" height="50" rx="6" fill="rgba(15,23,42,0.85)" stroke="#334155" stroke-width="1"/>
+    <text x="65" y="22" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#FFFFFF" text-anchor="middle">Cost</text>
+    <text x="65" y="40" font-family="system-ui, sans-serif" font-size="10" fill="#94A3B8" text-anchor="middle">Unit Cost, OEE</text>
+  </g>
+  <g transform="translate(452, 270)">
+    <rect x="0" y="0" width="130" height="50" rx="6" fill="rgba(15,23,42,0.85)" stroke="#334155" stroke-width="1"/>
+    <text x="65" y="22" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#FFFFFF" text-anchor="middle">Cash</text>
+    <text x="65" y="40" font-family="system-ui, sans-serif" font-size="10" fill="#94A3B8" text-anchor="middle">Inventory Turns, FCF</text>
+  </g>
+  
+  <text x="372" y="365" font-family="system-ui, sans-serif" 
+        font-size="12" font-weight="500" fill="#94A3B8" 
+        text-anchor="middle" letter-spacing="1">
+    Snowflake | Manufacturing Solutions
+  </text>
+  <text x="372" y="385" font-family="system-ui, sans-serif" 
+        font-size="9" font-weight="400" fill="#64748B" 
+        text-anchor="middle">
+    Photo: Unsplash (CC0)
+  </text>
+</svg>

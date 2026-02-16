@@ -54,7 +54,7 @@ if [ "$FORCE" != true ]; then
 fi
 
 info "Dropping Cortex Search service..."
-snow sql $SNOW_CONN -q "DROP CORTEX SEARCH SERVICE IF EXISTS ${DATABASE}.INTELLIGENCE.SUPPLY_CHAIN_CONTEXT_SEARCH;" || warn "Cortex Search service drop skipped"
+snow sql $SNOW_CONN -q "DROP CORTEX SEARCH SERVICE IF EXISTS ${DATABASE}.STRATEGY_SIMULATOR.SUPPLY_CHAIN_CONTEXT_SEARCH;" || warn "Cortex Search service drop skipped"
 
 info "Dropping warehouse..."
 snow sql $SNOW_CONN -q "DROP WAREHOUSE IF EXISTS ${WAREHOUSE};" || error_exit "Failed to drop warehouse"

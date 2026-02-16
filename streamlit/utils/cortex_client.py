@@ -3,7 +3,7 @@ from typing import Dict, List, Optional
 from snowflake.snowpark import Session
 
 SEMANTIC_MODEL_PATH = "@CAUSAL_CHAIN.STAGES.SEMANTIC_MODELS/causal_chain_model.yaml"
-SEARCH_SERVICE = "CAUSAL_CHAIN.INTELLIGENCE.SUPPLY_CHAIN_CONTEXT_SEARCH"
+SEARCH_SERVICE = "CAUSAL_CHAIN.STRATEGY_SIMULATOR.SUPPLY_CHAIN_CONTEXT_SEARCH"
 
 def query_cortex_analyst(session: Session, question: str) -> Dict:
     prompt = f"""You are a supply chain finance analyst. Given this question about the causal chain data model, answer based on the semantic model context.
@@ -47,7 +47,7 @@ def search_qbr_documents(session: Session, query: str, limit: int = 3) -> List[D
                 QUARTER,
                 YEAR,
                 CONTENT_TEXT
-            FROM INTELLIGENCE.QBR_DOCUMENTS
+            FROM RAW.QBR_DOCUMENTS
             WHERE CONTAINS(LOWER(CONTENT_TEXT), LOWER('{query}'))
             OR CONTAINS(LOWER(DOC_NAME), LOWER('{query}'))
             LIMIT {limit}
